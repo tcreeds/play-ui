@@ -2,6 +2,7 @@
   <div id="app">
     <navbar></navbar>
     <router-view/>
+    <footer><p>Questions? support@tcreeds.io</p></footer>
   </div>
 </template>
 
@@ -30,6 +31,12 @@ export default {
     //transform: scale(0.5);
     width: 2em;
     height: 2em;
+}
+footer{
+    position: absolute;
+    bottom: 1em;
+    left: 50%;
+    transform: translateX(-50%);
 }
 button{
     border: 2px solid blue;
