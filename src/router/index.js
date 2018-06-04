@@ -4,6 +4,8 @@ import Home from '@/components/home'
 import Login from '@/components/login'
 import CreateAccount from '@/components/createaccount'
 import Verify from '@/components/verify'
+import SearchCommunities from '@/components/SearchCommunities'
+import Community from '@/components/Community'
 import Out from '@/components/out'
 
 Vue.use(Router)
@@ -40,7 +42,20 @@ export default new Router({
         path: '/',
         name: 'Home',
         component: Home,
+        beforeEnter: requireAuth,
+    },
+    {
+        path: '/communities',
+        name: 'SearchCommunities',
+        component: SearchCommunities,
+        beforeEnter: requireAuth
+    },
+    {
+        path: '/communities/:id',
+        name: 'Community',
+        component: Community,
         beforeEnter: requireAuth
     }
+
   ]
 })

@@ -4,6 +4,8 @@ import axios from 'axios'
 const LOGIN_URL = '/users/login'
 const CREATE_ACCOUNT_URL = '/users/newuser'
 const VERIFY_URL = '/users/verifyemail'
+const COMMUNITIES_URL = '/communities'
+const COMMUNITIES_MEMBERS_URL = '/communities/'
 
 export default {
 
@@ -59,9 +61,17 @@ export default {
         return this.token
     },
 
+    getCommunities() {
+        return this.get(COMMUNITIES_URL)
+    },
+
+    getCommunityWithMembers(id) {
+        return this.get(COMMUNITIES_MEMBERS_URL + id.toString())
+    },
 
     get: function(path, data){
         return axios.get(this.getUrl(path), {
+            'params': data,
             'headers': { 'Authorization': this.getToken() }
         })
     },
