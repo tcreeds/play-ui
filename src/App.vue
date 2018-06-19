@@ -33,8 +33,12 @@ export default {
     height: 2em;
 }
 footer{
-    position: absolute;
+    margin: 3em 0;
     bottom: 1em;
+    width: 100%;
+}
+footer > p{
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
 }

@@ -1,7 +1,7 @@
 <template>
     <div id="search-communities">
-        <ul>
-            <li v-for="community in communities" v-on:click="goToProfile(community.id)" :key="community.id">
+        <ul class="community-list">
+            <li v-for="community in communities" v-on:click="goToCommunity(community.id)" :key="community.id">
                 <h3>{{community.name}}</h3>
                 <p>{{community.description}}</p>
                 <ul>
@@ -33,9 +33,16 @@ export default {
     },
 
     methods: {
-        goToProfile(id){
+        goToCommunity(id){
             this.$router.replace("/communities/" + id)
         }
     }
 }
 </script>
+
+<style>
+.community-list{
+    list-style-type: none;
+    padding: 0;
+}
+</style>
