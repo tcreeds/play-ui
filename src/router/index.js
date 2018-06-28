@@ -7,6 +7,7 @@ import Verify from '@/components/verify'
 import SearchCommunities from '@/components/SearchCommunities'
 import Community from '@/components/Community'
 import Profile from '@/components/Profile'
+import PasswordReset from '@/components/PasswordReset'
 import Out from '@/components/out'
 
 Vue.use(Router)
@@ -62,6 +63,11 @@ export default new Router({
         name: 'Profile',
         component: Profile,
         beforeEnter: requireAuth
+    },
+    {
+        path: '/passwordreset',
+        name: 'PasswordReset',
+        component: PasswordReset
     }
 
   ]

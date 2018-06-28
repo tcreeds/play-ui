@@ -6,6 +6,8 @@ const CREATE_ACCOUNT_URL = '/users/newuser'
 const VERIFY_URL = '/users/verifyemail'
 const COMMUNITIES_URL = '/communities'
 const COMMUNITIES_MEMBERS_URL = '/communities/'
+const SEND_RESET_EMAIL_URL = '/users/generateresetcode'
+const RESET_PASSWORD_URL = '/users/resetpassword'
 
 export default {
 
@@ -67,6 +69,14 @@ export default {
 
     getCommunityWithMembers(id) {
         return this.get(COMMUNITIES_MEMBERS_URL + id.toString())
+    },
+
+    sendResetEmail(email) {
+        return this.post(SEND_RESET_EMAIL_URL, { email: email })
+    },
+
+    resetPassword(verificationId) {
+        return this.post(RESET_PASSWORD_URL, { verificationId: verificationId })
     },
 
     get: function(path, data){

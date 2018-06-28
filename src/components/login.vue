@@ -20,8 +20,15 @@
         v-model="credentials.password"
       >
     </div>
-    <button class="login-btn" @click="submit">Log In</button>
-    <button class="login-btn" @click="createAccount">Create Account</button>
+    <div>
+        <button class="login-btn" @click="submit">Log In</button>
+    </div>
+    <div>
+        <button class="login-btn" @click="createAccount">Create Account</button>
+    </div>
+    <div>
+        <button class="login-btn" @click="resetPassword">Reset Password</button>
+    </div>
   </div>
 </template>
 
@@ -36,7 +43,8 @@ export default {
         email: '',
         password: ''
       },
-      error: ''
+      error: '',
+      passwordResetVisible: false
     }
   },
 
@@ -61,6 +69,10 @@ export default {
 
     createAccount: function(){
         this.$router.replace('createaccount')
+    },
+
+    resetPassword(){
+        this.$router.replace('passwordreset')
     },
 
     checkAuth: function(){
