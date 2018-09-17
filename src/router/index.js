@@ -36,7 +36,7 @@ export default new Router({
         component: Login
     },
     {
-        path: '/verify/:verificationId',
+        path: '/verify',
         name: 'Verify',
         component: Verify
     },

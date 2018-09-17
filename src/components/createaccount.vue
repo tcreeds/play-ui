@@ -9,12 +9,18 @@
     </div>
     <div v-if="!submitted">
         <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="email"
-            v-model="email"
-          >
+            <input
+              type="text"
+              class="form-control"
+              placeholder="email"
+              v-model="email">
+        </div>
+        <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="password"
+              v-model="password">
         </div>
         <button class="login-btn" @click="submit">Create Account</button>
     </div>
@@ -30,6 +36,7 @@ export default {
     return {
       submitted: false,
       email: '',
+      password: '',
       error: ''
     }
   },
@@ -38,7 +45,7 @@ export default {
 
     submit: function () {
 
-      Out.createAccount(this.email)
+      Out.createAccount(this.email, this.password)
           .then(() => {
               this.submitted = true
               this.error = ''

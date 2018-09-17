@@ -5,12 +5,6 @@
       <p>{{ error }}</p>
     </div>
     <div class="form-group">
-      <input
-        type="password"
-        class="form-control"
-        placeholder="password"
-        v-model="credentials.password"
-      >
     </div>
     <button class="login-btn" @click="submit">Activate</button>
   </div>
@@ -24,8 +18,8 @@ export default {
   data: function() {
     return {
       credentials: {
-        verificationId: this.$route.params.verificationId,
-        password: ''
+        verificationId: this.$route.query.verificationId,
+        email: this.$route.query.email
       },
       error: ''
     }

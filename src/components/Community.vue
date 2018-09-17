@@ -3,7 +3,7 @@
         <h2>{{name}}</h2>
         <p>{{description}}</p>
         <ul>
-            <li v-for="member in members">
+            <li v-for="member in members" v-bind:key="member.email">
                 {{member.email}}
             </li>
         </ul>
