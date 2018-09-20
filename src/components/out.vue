@@ -29,8 +29,8 @@ export default {
           })
     },
 
-    createAccount(email) {
-        return this.post(CREATE_ACCOUNT_URL, {email})
+    createAccount(email, password) {
+        return this.post(CREATE_ACCOUNT_URL, {email, password})
     },
 
     verify(creds) {
