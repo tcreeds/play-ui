@@ -5,6 +5,7 @@ import Login from '@/components/login'
 import CreateAccount from '@/components/createaccount'
 import Verify from '@/components/verify'
 import SearchCommunities from '@/components/SearchCommunities'
+import CreateCommunity from '@/components/CreateCommunity'
 import Community from '@/components/Community'
 import Profile from '@/components/Profile'
 import PasswordReset from '@/components/PasswordReset'
@@ -57,6 +58,12 @@ export default new Router({
         path: '/communities/:id',
         name: 'Community',
         component: Community,
+        beforeEnter: requireAuth
+    },
+    {
+        path: '/create-community',
+        name: 'CreateCommunity',
+        component: CreateCommunity,
         beforeEnter: requireAuth
     },
     {

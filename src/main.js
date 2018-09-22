@@ -7,6 +7,8 @@ import fontawesome from '@fortawesome/fontawesome'
 import solid from '@fortawesome/fontawesome-free-solid'
 import { faCheck, faTimes, faPlus } from '@fortawesome/fontawesome-free-solid'
 
+console.log(router)
+
 fontawesome.library.add(solid, faCheck)
 fontawesome.library.add(solid, faTimes)
 

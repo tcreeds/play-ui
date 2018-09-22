@@ -6,6 +6,7 @@ const CREATE_ACCOUNT_URL = '/users/newuser'
 const VERIFY_URL = '/users/verifyemail'
 const COMMUNITIES_URL = '/communities'
 const COMMUNITIES_MEMBERS_URL = '/communities/'
+const CREATE_COMMUNITY_URL = '/communities/add'
 const SEND_RESET_EMAIL_URL = '/users/generateresetcode'
 const RESET_PASSWORD_URL = '/users/resetpassword'
 
@@ -61,6 +62,13 @@ export default {
         if (!this.token)
             this.token = localStorage.getItem('token')
         return this.token
+    },
+
+    createCommunity(name, description){
+        return this.post(CREATE_COMMUNITY_URL, {
+            name,
+            description
+        })
     },
 
     getCommunities() {

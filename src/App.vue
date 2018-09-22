@@ -34,8 +34,9 @@ export default {
 }
 footer{
     margin: 3em 0;
-    bottom: 1em;
     width: 100%;
+    bottom: 0em;
+    position: absolute;
 }
 footer > p{
     position: relative;

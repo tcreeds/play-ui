@@ -1,11 +1,12 @@
 <template>
     <div id="search-communities">
+        <button v-on:click="goToCreateCommunity">CREATE COMMUNITY</button>
         <ul class="community-list">
             <li v-for="community in communities" v-on:click="goToCommunity(community.id)" :key="community.id">
                 <h3>{{community.name}}</h3>
                 <p>{{community.description}}</p>
                 <ul>
-                    <li v-for="member in community.members">
+                    <li v-for="member in community.members" v-bind:key="member.id">
                         <p>{{member.email}}</p>
                     </li>
                 </ul>
@@ -35,6 +36,9 @@ export default {
     methods: {
         goToCommunity(id){
             this.$router.replace("/communities/" + id)
+        },
+        goToCreateCommunity(id){
+            this.$router.replace("/create-community")
         }
     }
 }
