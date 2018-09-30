@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <div class="login-container column">
     <h2>Log In</h2>
     <div class="alert alert-danger" v-if="error">
       <p>{{ error }}</p>

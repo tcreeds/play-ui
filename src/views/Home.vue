@@ -1,8 +1,10 @@
 <template>
     <div id="task-view" class="cf">
-        <span id="userGreeting" v-once>Hi {{user}}!</span>
-        <h2>HOME</h2>
-        <button @click="goToCommunities">COMMUNITIES</button>
+        <div class="column">
+            <span id="userGreeting" v-once>Hi {{user}}!</span>
+            <h2>HOME</h2>
+            <button @click="goToCommunities">COMMUNITIES</button>
+        </div>
     </div>
 </template>
 
