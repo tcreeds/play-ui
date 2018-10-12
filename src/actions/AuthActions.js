@@ -28,5 +28,5 @@ export function logout(commit){
     commit(LOGOUT)
     localStorage.removeItem('user')
     localStorage.removeItem('token')
-    router.replace('/login')
+    router.push('/login')
 }

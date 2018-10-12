@@ -41,7 +41,7 @@ export default {
         createCommunity(){
             Out.createCommunity(this.name, this.description)
                 .then(res => {
-                    this.$router.replace(`/communities/${res.data.id}`)
+                    this.$router.push(`/communities/${res.data.id}`)
                 })
                 .catch(res => this.error = res.message)
         }

@@ -1,6 +1,9 @@
 <template>
     <div id="navbar" class="cf">
-        <button id="logout-btn" @click="logout" v-if="loggedIn">LOGOUT</button>
+        <div v-if="loggedIn" id="logout-container">
+            <button id="logout-btn" @click="logout">LOGOUT</button>
+            <span>{{username}}</span>
+        </div>
         <img src="../assets/logo.png">
         <div id="link-container" v-if="loggedIn">
             <button id="home-btn" @click="home">HOME</button>
@@ -21,7 +24,8 @@ export default {
     },
 
     computed: mapState({
-        loggedIn: state => state.auth.loggedIn
+        loggedIn: state => state.auth.loggedIn,
+        username: state => state.auth.username
     }),
 
     methods: {
@@ -29,11 +33,11 @@ export default {
         ...mapActions(['logout']),
 
         profile(){
-            this.$router.replace('/profile')
+            this.$router.push('/profile')
         },
 
         home(){
-            this.$router.replace('/')
+            this.$router.push('/')
         }
     }
 }
@@ -52,11 +56,13 @@ img{
     width: 2em;
 }
 #logout-btn{
-    position: absolute;
-    left: 1em;
+    margin-right: 0.2em;
 }
 #link-container{
     float: right;
+}
+#logout-container{
+    float: left;
 }
 .cf:before,
 .cf:after {

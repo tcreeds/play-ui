@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container column">
+  <div class="login-container section">
     <h2>Log In</h2>
     <div class="alert alert-danger" v-if="error">
       <p>{{ error }}</p>
@@ -86,7 +86,7 @@ export default {
 
 <style>
     .login-container{
-        font-size: 1.2em;
+        text-align: center;
     }
     .form-control{
         text-align: center;

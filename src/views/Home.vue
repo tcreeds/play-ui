@@ -1,17 +1,19 @@
 <template>
-    <div id="task-view" class="cf">
-        <div class="column">
-            <span id="userGreeting" v-once>Hi {{username}}!</span>
-            <h2>HOME</h2>
-            <button @click="goToCommunities">COMMUNITIES</button>
+    <div id="task-view" class="section">
+        <div class="container">
+            <div class="hero is-primary">
+                <div class="hero-body">
+                    <h2 class="title">HOME</h2>
+                </div>
+            </div>
+            <div class="card">
+                <p class="card-content">Check out the list of <span class="link" @click="goToCommunities">communities</span></p>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-
-import Out from '@/components/out'
-import { mapState } from 'vuex'
 
 export default {
     data: function() {
@@ -19,13 +21,9 @@ export default {
         }
     },
 
-    computed: {
-        ...mapState(['username'])
-    },
-
     methods: {
         goToCommunities(){
-            this.$router.replace('/communities')
+            this.$router.push('/communities')
         }
     }
 

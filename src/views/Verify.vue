@@ -30,8 +30,8 @@ export default {
     submit: function () {
 
       Out.verify(this.credentials)
-          .then((data) => {
-              this.$router.replace('/')
+          .then(() => {
+              this.$router.push('/')
           })
           .catch((response) => {
               console.log(response)

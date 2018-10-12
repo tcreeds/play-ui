@@ -1,17 +1,20 @@
 <template>
-    <div id="search-communities">
-        <button v-on:click="goToCreateCommunity">CREATE COMMUNITY</button>
-        <ul class="community-list">
-            <li v-for="community in communities" v-on:click="goToCommunity(community.id)" :key="community.id">
-                <h3>{{community.name}}</h3>
-                <p>{{community.description}}</p>
-                <ul>
-                    <li v-for="member in community.members" v-bind:key="member.id">
-                        <p>{{member.email}}</p>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+    <div id="search-communities" class="section is-medium">
+        <div class="container">
+            <div class="level">
+                <button v-on:click="goToCreateCommunity">CREATE COMMUNITY</button>
+            </div>
+            <ul class="community-list">
+                <li v-for="community in communities" v-on:click="goToCommunity(community.id)" :key="community.id" class="card">
+                    <div class="card-header">
+                        <h2 class="card-header-title">{{community.name}}</h2>
+                    </div>
+                    <div class="card-content">
+                        <p>{{community.description}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
@@ -35,18 +38,15 @@ export default {
 
     methods: {
         goToCommunity(id){
-            this.$router.replace("/communities/" + id)
+            this.$router.push("/communities/" + id)
         },
-        goToCreateCommunity(id){
-            this.$router.replace("/create-community")
+        goToCreateCommunity(){
+            this.$router.push("/create-community")
         }
     }
 }
 </script>
 
 <style>
-.community-list{
-    list-style-type: none;
-    padding: 0;
-}
+
 </style>
