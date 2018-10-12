@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from './store'
 //import Home from './views/Home.vue'
 
-import Home from '@/views/Home'
+import Home from './views/Home'
 import Login from '@/views/Login'
 import CreateAccount from '@/views/CreateAccount'
 import Verify from '@/views/Verify'
@@ -11,12 +12,11 @@ import CreateCommunity from '@/views/CreateCommunity'
 import Community from '@/views/Community'
 import Profile from '@/views/Profile'
 import PasswordReset from '@/views/PasswordReset'
-import Out from '@/components/out'
 
 Vue.use(Router)
 
 function requireAuth (to, from, next) {
-  if (!Out.checkAuth()) {
+  if (!store.state.auth.loggedIn) {
     next({
       path: '/login',
       query: { redirect: to.fullPath }

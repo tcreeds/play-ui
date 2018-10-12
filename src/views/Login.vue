@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Out from '@/components/out'
+import { mapState, mapActions } from 'vuex'
 
 export default {
 
@@ -48,7 +48,15 @@ export default {
     }
   },
 
+  computed: {
+    ...mapState({
+      loggedIn: state => state.auth.loggedIn
+    })
+  },
+
   methods: {
+
+    ...mapActions(['login']),  
 
     submit: function () {
 
@@ -57,27 +65,19 @@ export default {
         password: this.credentials.password
       }
 
-      Out.login(credentials)
-      .then(() => {
-          this.$router.replace(this.$route.query.redirect || '/')
-      })
-      .catch((response) => {
-          console.log(response)
-          alert('no')
-      })
+      this.login(credentials)
+        .catch((response) => {
+            console.log(response)
+            alert('no')
+        })
     },
 
     createAccount: function(){
-        this.$router.replace('createaccount')
+        this.$router.push('createaccount')
     },
 
     resetPassword(){
-        this.$router.replace('passwordreset')
-    },
-
-    checkAuth: function(){
-        this.loggedIn = Out.checkAuth()
-        console.log("checking login auth")
+        this.$router.push('passwordreset')
     }
   }
 

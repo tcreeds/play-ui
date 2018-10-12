@@ -11,21 +11,22 @@
 
 <script>
 
-import Out from '@/components/out'
+import { mapState, mapActions } from 'vuex'
 
 export default {
 
     data(){
         return {
-            loggedIn: Out.checkAuth()
         }
     },
 
+    computed: mapState({
+        loggedIn: state => state.auth.loggedIn
+    }),
+
     methods: {
-        logout(){
-            Out.logout();
-            this.$router.replace('/login')
-        },
+
+        ...mapActions(['logout']),
 
         profile(){
             this.$router.replace('/profile')

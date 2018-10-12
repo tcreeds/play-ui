@@ -1,7 +1,7 @@
 <template>
     <div id="task-view" class="cf">
         <div class="column">
-            <span id="userGreeting" v-once>Hi {{user}}!</span>
+            <span id="userGreeting" v-once>Hi {{username}}!</span>
             <h2>HOME</h2>
             <button @click="goToCommunities">COMMUNITIES</button>
         </div>
@@ -11,12 +11,16 @@
 <script>
 
 import Out from '@/components/out'
+import { mapState } from 'vuex'
 
 export default {
     data: function() {
         return {
-            user: Out.getUser()
         }
+    },
+
+    computed: {
+        ...mapState(['username'])
     },
 
     methods: {

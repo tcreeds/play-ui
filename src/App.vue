@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <!--<router-link to="/">Home</router-link> -->
       <!--<router-link to="/about">About</router-link>-->
       <Navbar />
     </div>
@@ -11,10 +11,16 @@
 
 <script>
 import Navbar from '@/components/navbar'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
-  components: { Navbar }
+  components: { Navbar },
+  computed: {
+    ...mapState([
+      'loggedIn'
+    ])
+  }
 }
 </script>
 
