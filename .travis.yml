@@ -2,11 +2,7 @@ language: node_js
 node_js:
 - node
 script: npm run build
-deploy:
-  provider: s3
-  access_key_id: AKIAIX757KIG656AZXYA
-  secret_access_key:
-    secure: Knur+k2vJVFu2YxPWv4J7p1RTqN9raU9UY5qw8byE0bxsJtXYvqdCeYelqANkK5myz8MzpE+1R5MGgCPNz8ynt6pWID59NmyimztHKeWPdpvUZZ732apPYWkqD8WnX9HGcI/kN4hb3nObaj3WtnBJEUr2axbXGJPgxo10dz4X1urUwgIpaETdC7W+pLpt9Q6OUZ84xa1LbtGn+m+5MLeh41kymc/Vls/Qx3uM36h4VKDVqgomjebFAcaYhjknA48Q2o+utD459Dz9ehjqRxL72Hmc0+F7hdvKbsgdM+5dWkSq+Zq+oemcvLvo6mzfqY7w1dgKNp1uBhLge6g/WpCjRLMpXLYDRm+3b2P7A5EB08paNauA8M6lG1vIyEdojpV8sB2+a4wodnpoWpUF61ZAwn1XqbXJ7g+GrHArBAiGSPY4CCVkAYIuR84f5N18/UL/kINB4uEGbeMK5C4ZziRnGlqvGo/RSq+tVtCGXdW/14pubwGI08o9aZjoFwdK4PsihUvYCEJlZiJfd6bTodj7t1RSDsn3Q2URfbzgAZwbZbIjoJXHEsjK5H5bf+RR6OFwPMJPQcQNkIqaaiHyDVL/XmydDwJTidEdHrZluU1NiBVlZkHOr8CWEJ5uiJL0ZhGpTfJmHV6+z6q+u548ehdHwPOzgv/LIeDetFo4/lNVks=
-  bucket: play.tcreeds.io
-  local_dir: dist
-  skip_cleanup: true
+after_success:
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  - aws s3 sync ./dist s3://play.tcreeds.io
