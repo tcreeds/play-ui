@@ -14,8 +14,8 @@
                     <h3 class="card-header-title">Users ({{members.length}})</h3>
                 </div>
                 <ul class="user-list card-content">
-                    <li v-for="member in members" v-bind:key="member.email">
-                        {{member.email}}
+                    <li v-for="member in members" v-bind:key="member.userId">
+                        {{member.displayName}}
                     </li>
                 </ul>
             </div>
@@ -48,7 +48,4 @@ export default {
 </script>
 
 <style>
-.user-list{
-
-}
 </style>

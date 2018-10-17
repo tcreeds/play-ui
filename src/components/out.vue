@@ -1,7 +1,7 @@
 <script>
+//trying to phase this file out in favor of actions
 import axios from 'axios'
 
-const LOGIN_URL = '/users/login'
 const CREATE_ACCOUNT_URL = '/users/newuser'
 const VERIFY_URL = '/users/verifyemail'
 const COMMUNITIES_URL = '/communities'
@@ -19,28 +19,14 @@ export default {
         return 'https://play-api.tcreeds.io' + path
     },
 
-    login(creds) {
-        return this.post(LOGIN_URL, creds)
-          .then((response) =>{
-              console.log(response)
-              localStorage.setItem('user', creds.email)
-              this.token = response.headers["authorization"]
-              if (this.token)
-                localStorage.setItem('token', this.token)
-          })
-    },
-
-    createAccount(email, password) {
-        return this.post(CREATE_ACCOUNT_URL, {email, password})
+    createAccount(email, username, password) {
+        return this.post(CREATE_ACCOUNT_URL, {email, username, password})
     },
 
     verify(creds) {
         return this.post(VERIFY_URL, creds)
-            .then((response) =>{
-                localStorage.setItem('user', creds.email)
-                this.token = response.headers["authorization"]
-                if (this.token)
-                  localStorage.setItem('token', this.token)
+            .then(() =>{
+                this.$router.push("/login")
             })
     },
 
@@ -55,7 +41,7 @@ export default {
     },
 
     getUser() {
-        return localStorage.getItem('user')
+        return localStorage.getItem('username')
     },
 
     getToken() {

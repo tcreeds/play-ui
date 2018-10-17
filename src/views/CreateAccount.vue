@@ -19,6 +19,13 @@
             <input
               type="text"
               class="form-control"
+              placeholder="Display Name"
+              v-model="username">
+        </div>
+        <div class="form-group">
+            <input
+              type="text"
+              class="form-control"
               placeholder="password"
               v-model="password">
         </div>
@@ -45,7 +52,7 @@ export default {
 
     submit: function () {
 
-      Out.createAccount(this.email, this.password)
+      Out.createAccount(this.email, this.username, this.password)
           .then(() => {
               this.submitted = true
               this.error = ''

@@ -1,6 +1,10 @@
 <template>
-    <div>
-        <h2>CREATE COMMUNITY</h2>
+    <div class="section">
+        <div class="hero is-primary">
+            <div class="hero-body">
+                <h2 class="title">CREATE COMMUNITY</h2>
+            </div>
+        </div>
         <div class="alert alert-danger" v-if="error">
             <p>{{ error }}</p>
         </div>

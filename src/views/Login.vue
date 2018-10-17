@@ -8,7 +8,7 @@
       <input
         type="text"
         class="form-control"
-        placeholder="username"
+        placeholder="email"
         v-model="credentials.email"
       >
     </div>

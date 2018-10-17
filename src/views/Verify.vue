@@ -37,11 +37,6 @@ export default {
               console.log(response)
               alert('no')
           })
-    },
-
-    checkAuth: function(){
-        this.loggedIn = Out.checkAuth()
-        console.log("checking login auth")
     }
   }
 
