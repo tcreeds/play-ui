@@ -7,6 +7,7 @@
     <div class="form-group">
       <input
         type="text"
+        id="email-input"
         class="form-control"
         placeholder="email"
         v-model="credentials.email"
@@ -15,13 +16,14 @@
     <div class="form-group">
       <input
         type="password"
+        id="password-input"
         class="form-control"
         placeholder="password"
         v-model="credentials.password"
       >
     </div>
     <div>
-        <button class="login-btn" @click="submit">Log In</button>
+        <button class="login-btn" id="login-button" @click="submit">Log In</button>
     </div>
     <div>
         <button class="login-btn" @click="createAccount">Create Account</button>
