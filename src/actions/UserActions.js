@@ -10,8 +10,7 @@ export function updateUserProfile(commit, info){
     console.log(info)
     return Axios.post(`${BASE_URL}${PROFILE_URL}`, info, {
         'headers': { 
-            'Authorization': localStorage.getItem('token'),
-            'Content-Type': 'application/json' 
+            'Authorization': localStorage.getItem('token')
         }
     }).then((res) => {
         console.log(res)

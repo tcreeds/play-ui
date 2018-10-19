@@ -61,8 +61,7 @@ export default new Router({
     {
         path: '/communities/:id',
         name: 'Community',
-        component: Community,
-        beforeEnter: requireAuth
+        component: Community
     },
     {
         path: '/create-community',

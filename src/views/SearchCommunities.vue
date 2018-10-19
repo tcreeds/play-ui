@@ -1,6 +1,11 @@
 <template>
-    <div id="search-communities" class="section is-medium">
+    <div id="search-communities" class="section">
         <div class="container">
+            <div class="hero is-primary">
+                <div class="hero-body">
+                    <h1 class="title">COMMUNITIES</h1>
+                </div>
+            </div>
             <div class="level">
                 <button v-on:click="goToCreateCommunity">CREATE COMMUNITY</button>
             </div>

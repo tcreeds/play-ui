@@ -103,4 +103,7 @@ input{
 .link:hover{
   text-decoration: underline;
 }
+.hero{
+  margin-bottom: 0.5em;
+}
 </style>

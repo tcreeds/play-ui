@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { login, logout } from '@/actions/AuthActions'
 import { updateUserProfile, getUserProfile } from '@/actions/UserActions'
+import { getPosts, addPost, joinGroup } from '@/actions/CommunityActions'
 
 Vue.use(Vuex)
 
@@ -54,6 +55,15 @@ export default new Vuex.Store({
     },
     getUserProfile(context, userId){
       return getUserProfile(userId)
+    },
+    getPosts(context, id){
+      return getPosts(id)
+    },
+    addPost(context, postData){
+      return addPost(postData)
+    },
+    joinGroup(context, groupId){
+      return joinGroup(groupId)
     }
   }
 })
