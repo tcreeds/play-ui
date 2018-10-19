@@ -14,8 +14,8 @@
                     <h3 class="card-header-title">Users ({{members.length}})</h3>
                 </div>
                 <ul class="user-list card-content">
-                    <li v-for="member in members" v-bind:key="member.userId">
-                        {{member.displayName}}
+                    <li v-for="member in members" v-bind:key="member.userId" >
+                        <span @click="goToUserProfile(member.id)">{{member.displayName || '(No display name for user)'}}</span>
                     </li>
                 </ul>
             </div>
@@ -42,6 +42,12 @@ export default {
             this.description = data.data.description
             this.members = data.data.members
         })
+    },
+
+    methods: {
+        goToUserProfile(id){
+            this.$router.push(`/profile/${id}`)
+        }
     }
 }
 

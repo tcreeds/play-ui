@@ -10,7 +10,8 @@ import Verify from '@/views/Verify'
 import SearchCommunities from '@/views/SearchCommunities'
 import CreateCommunity from '@/views/CreateCommunity'
 import Community from '@/views/Community'
-import Profile from '@/views/Profile'
+import MyProfile from '@/views/MyProfile'
+import UserProfile from '@/views/UserProfile'
 import PasswordReset from '@/views/PasswordReset'
 
 Vue.use(Router)
@@ -70,10 +71,16 @@ export default new Router({
         beforeEnter: requireAuth
     },
     {
+        path: '/profile/:id',
+        name: 'UserProfile',
+        component: UserProfile,
+        beforeEnter: requireAuth
+    },
+    {
         path: '/profile',
         name: 'Profile',
-        component: Profile,
-        beforeEnter: requireAuth
+        component: MyProfile,
+        beforeEnter: requireAuth,
     },
     {
         path: '/passwordreset',
