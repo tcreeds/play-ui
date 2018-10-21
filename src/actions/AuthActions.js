@@ -21,8 +21,8 @@ export function login(commit, credentials){
             localStorage.setItem('email', response.data.email)
             localStorage.setItem('username', response.data.displayName)
             localStorage.setItem('token', token)
-            return token
-        }).then(() => {
+            
+
             router.push(router.app._route.query.redirect || '/')
         })
 }

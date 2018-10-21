@@ -25,9 +25,15 @@ describe('Login Tests', () => {
     it('calls login with params when user clicks login', () => {
         const wrapper = shallowMount(Login, { store, localVue })
 
-        wrapper.find('#email-input').setValue('test')
+        wrapper.find('input[type=email]').setValue('test')
         wrapper.find('#login-button').trigger('click')
-        console.log(actions.login.getCall(0).args)
         expect(actions.login.getCall(0).args[1]).to.deep.equal({ email: 'test', password: '' })
+    })
+
+    it('calls login when user hits enter', () => {
+        const wrapper = shallowMount(Login, { store, localVue })
+        wrapper.find('input[type=email]').trigger('keypress', {key: 'Enter'})
+        wrapper.find('input[type=password]').trigger('keypress', {key: 'Enter'})
+        expect(actions.login.calledTwice).to.be.true
     })
 })

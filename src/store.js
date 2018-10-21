@@ -45,13 +45,13 @@ export default new Vuex.Store({
   },
   actions: {
     login(context, credentials){
-      login(context.commit, credentials)
+      return login(context.commit, credentials)
     },
     logout(context){
-      logout(context.commit)
+      return logout(context.commit)
     },
     updateUserProfile(context, info){
-      updateUserProfile(context.commit, info)
+      return updateUserProfile(context.commit, info)
     },
     getUserProfile(context, userId){
       return getUserProfile(userId)
