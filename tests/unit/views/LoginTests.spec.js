@@ -34,6 +34,6 @@ describe('Login Tests', () => {
         const wrapper = shallowMount(Login, { store, localVue })
         wrapper.find('input[type=email]').trigger('keypress', {key: 'Enter'})
         wrapper.find('input[type=password]').trigger('keypress', {key: 'Enter'})
-        expect(actions.login.calledTwice).to.be.true
+        expect(actions.login.called).to.be.true
     })
 })

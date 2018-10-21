@@ -79,7 +79,7 @@ export default {
     ...mapActions(['login']),  
 
     onKeypress(e){
-      if (e.keyCode == "13")
+      if (e.key == "Enter")
         this.submit()
     },
 
