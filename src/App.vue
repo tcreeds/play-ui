@@ -74,15 +74,6 @@ button:hover{
     background: white;
     color: blue;
 }
-input{
-    border: none;
-    transition: border 0.25s ease;
-    box-sizing: border-box;
-    border-bottom: 1px solid black;
-    margin-bottom: 0.2em;
-    font-size: 1em;
-    padding-bottom: 0.2em;
-}
 .display-input{
     border: 1px solid transparent;
 }
