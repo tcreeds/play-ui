@@ -43,6 +43,7 @@ export default {
     return {
       submitted: false,
       email: '',
+      username: '',
       password: '',
       error: ''
     }

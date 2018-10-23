@@ -30,6 +30,16 @@
             </div>
             <div class="card">
                 <div class="card-header">
+                    <h3 class="card-header-title">Admins ({{admins.length}})</h3>
+                </div>
+                <ul class="card-content">
+                    <li v-for="admin in admins" v-bind:key="admin.userId" >
+                        <span @click="goToUserProfile(admin.id)">{{admin.displayName || '(No display name for user)'}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="card">
+                <div class="card-header">
                     <h3 class="card-header-title">Users ({{members.length}})</h3>
                 </div>
                 <ul class="card-content">
@@ -52,6 +62,7 @@ export default {
         return {
             name: '',
             description: '',
+            admins: [],
             members: [],
             posts: [],
             userIsMember: false,
@@ -70,7 +81,8 @@ export default {
         Out.getCommunityWithMembers(this.$route.params.id).then((data) => {
             this.name = data.data.name
             this.description = data.data.description
-            this.members = data.data.members
+            this.members = data.data.members || []
+            this.admins = data.data.admins || []
             this.userIsMember = this.members.find(user => user.id == this.userId)
         })
         this.getPosts(this.$route.params.id).then(data => {

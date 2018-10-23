@@ -25,9 +25,6 @@ export default {
 
     verify(creds) {
         return this.post(VERIFY_URL, creds)
-            .then(() =>{
-                this.$router.push("/login")
-            })
     },
 
     logout() {
