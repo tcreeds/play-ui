@@ -19,8 +19,8 @@ export default {
         return 'https://play-api.tcreeds.io' + path
     },
 
-    createAccount(email, username, password) {
-        return this.post(CREATE_ACCOUNT_URL, {email, username, password})
+    createAccount(email, displayName, password) {
+        return this.post(CREATE_ACCOUNT_URL, {email, displayName, password})
     },
 
     verify(creds) {
