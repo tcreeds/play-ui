@@ -1,35 +1,60 @@
 <template>
-  <div class="login-container">
-    <h2>Create Account</h2>
-    <div class="alert alert-danger" v-if="error">
-      <p>{{ error }}</p>
+  <div class="section">
+    <div class="hero is-primary">
+        <div class="hero-body">
+            <h2 class="title">Create Account</h2>
+        </div>
     </div>
-    <div class="form-group" v-if="submitted">
-        <p>Check your email for a link to verify your account.</p>
-    </div>
-    <div v-if="!submitted">
-        <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="email"
-              v-model="email">
-        </div>
-        <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Display Name"
-              v-model="displayName">
-        </div>
-        <div class="form-group">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="password"
-              v-model="password">
-        </div>
-        <button class="login-btn" @click="submit">Create Account</button>
+    
+    <div class="center-block-medium">
+      <div class="form-group" v-if="submitted">
+          <p>Check your email for a link to verify your account.</p>
+      </div>
+      <div v-if="!submitted">
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control has-icons-left has-icons-right">
+              <input 
+                class="input" 
+                type="email" 
+                placeholder="email"
+                v-model="email">
+              <span class="icon is-small is-left">
+                <font-awesome-icon icon="envelope" />
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Display Name</label>
+            <div class="control">
+              <input 
+                class="input" 
+                type="email" 
+                placeholder="Display Name"
+                v-model="displayName">
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Password</label>
+            <div class="control has-icons-left">
+              <input 
+                class="input" 
+                type="password" 
+                placeholder="password"
+                v-model="password">
+              <span class="icon is-small is-left">
+                <font-awesome-icon icon="key" />
+              </span>
+            </div>
+          </div>
+          <div class="field">
+              <div class="control has-text-centered">
+                  <button class="button is-primary" id="create-account-button" @click="submit">Create Account</button>
+              </div>
+          </div>
+          
+          <p v-if="error" class="help is-danger">{{ error }}</p>
+      </div>
     </div>
   </div>
 </template>

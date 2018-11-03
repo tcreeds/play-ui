@@ -1,12 +1,18 @@
 <template>
-  <div class="login-container">
-    <h2>Activate Account</h2>
-    <div class="alert alert-danger" v-if="error">
-      <p>{{ error }}</p>
+  <div class="section">
+    <div class="hero is-primary">
+        <div class="hero-body">
+            <h2 class="title">Activate Account</h2>
+        </div>
     </div>
-    <div class="form-group">
+    <div class="center-block-small">
+      <div class="field">
+          <div class="control has-text-centered">
+              <button class="button is-primary" id="create-account-button" @click="submit">Activate Account</button>
+          </div>
+      </div>
+      <p v-if="error" class="help is-danger">{{ error }}</p>
     </div>
-    <button class="login-btn" @click="submit">Activate</button>
   </div>
 </template>
 

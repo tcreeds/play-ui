@@ -1,13 +1,13 @@
 <template>
     <div id="navbar" class="cf">
         <div v-if="loggedIn" id="logout-container">
-            <button id="logout-btn" @click="logout">LOGOUT</button>
+            <button id="logout-btn" class="button is-primary" @click="logout">LOGOUT</button>
             <span>{{username}}</span>
         </div>
         <img src="../assets/logo.png">
         <div id="link-container" v-if="loggedIn">
-            <button id="home-btn" @click="home">HOME</button>
-            <button id="profile-btn" @click="profile">PROFILE</button>
+            <button id="home-btn" class="button is-link" @click="home">HOME</button>
+            <button id="profile-btn" class="button is-link" @click="profile">PROFILE</button>
         </div>
     </div>
 </template>
@@ -61,8 +61,17 @@ img{
 #link-container{
     float: right;
 }
+#link-container > button {
+    margin-left: 0.2em;
+}
 #logout-container{
     float: left;
+    position: relative;
+}
+#logout-container > span{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .cf:before,
 .cf:after {

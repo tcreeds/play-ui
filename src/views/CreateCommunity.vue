@@ -5,24 +5,32 @@
                 <h2 class="title">CREATE COMMUNITY</h2>
             </div>
         </div>
-        <div class="alert alert-danger" v-if="error">
-            <p>{{ error }}</p>
-        </div>
-        <div>
-            <div class="form-group">
-                <input
-                type="text"
-                class="form-control"
-                placeholder="name"
-                v-model="name">
+        <div class="center-block-medium">
+            <div class="field">
+                <label class="label">Community Name</label>
+                <div class="control has-icons-left has-icons-right">
+                    <input 
+                        class="input" 
+                        type="text" 
+                        placeholder="Name"
+                        v-model="name">
+                </div>
             </div>
-            <label >description</label>
-            <div class="form-group">
-                <textarea
-                class="form-control"
-                v-model="description"></textarea>
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <textarea 
+                        class="input"
+                        placeholder="Description"
+                        v-model="description" />
+                </div>
             </div>
-            <button @click="createCommunity">CREATE</button>
+            <div class="field">
+                <div class="control has-text-centered">
+                    <button class="button is-primary" id="create-community-button" @click="createCommunity">CREATE</button>
+                </div>
+            </div>
+            <p v-if="error" class="help is-danger">{{ error }}</p>
         </div>
     </div>
 </template>

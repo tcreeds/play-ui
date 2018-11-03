@@ -23,7 +23,16 @@ export default {
 </script>
 
 <style lang="scss">
-
+div.center-block-small{
+  text-align: center;
+  max-width: 25em;
+  margin: 0 auto;
+}
+div.center-block-medium{
+  text-align: center;
+  max-width: 35em;
+  margin: 0 auto;
+}
 #nav {
   padding: 15px 30px;
   a {

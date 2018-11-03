@@ -7,7 +7,12 @@
                 </div>
             </div>
             <div class="card">
-                <p class="card-content">{{description}}</p>
+                <div class="card-content">
+                    <p class="description">{{description}}</p>
+                    <div v-if="!userIsMember">
+                        <button class="button is-primary" @click="joinThisGroup">JOIN THIS GROUP</button>
+                    </div>
+                </div>
             </div>
             <div>
                 <div v-if="userIsMember">
@@ -23,9 +28,6 @@
                             <p>{{post.content}}</p>
                         </li>
                     </ul>
-                </div>
-                <div v-else>
-                    <button @click="joinThisGroup">JOIN</button>
                 </div>
             </div>
             <div class="card">
@@ -114,4 +116,7 @@ export default {
 </script>
 
 <style>
+    .description{
+        padding-bottom: 0.8em;
+    }
 </style>

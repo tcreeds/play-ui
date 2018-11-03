@@ -1,7 +1,7 @@
 <template>
-  <div class="login-container section">
+  <div class="section login-container">
     <h2 class="title">Log In</h2>
-    <div class="container">
+    <div class="container center-block-small">
       <div class="field">
         <label class="label">Email</label>
         <div class="control has-icons-left has-icons-right">
@@ -127,12 +127,5 @@ export default {
     #login-button{
         font-size: 1.2em;
         margin-top: 0.5em;
-    }
-
-    @media screen {
-      .login-container {
-        max-width: 20em;
-        margin: 0 auto;
-      }
     }
 </style>

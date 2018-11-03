@@ -27,9 +27,10 @@
                             v-model="bio"></textarea>
                     </div>
                 </div>
-            </div>
-            <div>
-                <button class="login-btn" @click="updateInfo">UPDATE</button>
+                <div class="card-content">
+                    <button class="button is-primary" @click="updateInfo">UPDATE</button>
+                    <p v-if="updateMessage" class="help">{{ updateMessage }}</p>
+                </div>
             </div>
             <div class="card">
                 <div class="card-header">
@@ -55,7 +56,8 @@ export default {
         return {
             displayName: this.username || '',
             bio: '',
-            communities: []
+            communities: [],
+            updateMessage: undefined
         }
     },
 
@@ -80,9 +82,12 @@ export default {
         ...mapActions(['updateUserProfile', 'getUserProfile']),
 
         updateInfo(){
+            this.updateMessage = "Updating..."
             this.updateUserProfile({
                 username: this.displayName,
                 bio: this.bio
+            }).then(() => {
+                this.updateMessage = "Success!"
             })
         }
     }
